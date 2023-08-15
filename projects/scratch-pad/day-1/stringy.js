@@ -26,7 +26,8 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //return a string t all lowercase
+    return string.toLowerCase();    
 
 
     // YOUR CODE ABOVE HERE //
@@ -37,7 +38,8 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //return a string to all uppercase
+return string.toUpperCase();
 
 
     // YOUR CODE ABOVE HERE //
@@ -58,8 +60,10 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
-
+    //turn Hello World lowercase
+    string = string.toLowerCase();
+    //return spaces for all 
+return string.replaceAll(' ', '-');
 
     // YOUR CODE ABOVE HERE //
 }
@@ -78,9 +82,15 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
-    
-
+//evaluate if first char of string === char
+// turn string char lowercase
+if (string.charAt(0)  === char.toUpperCase()){
+    //log true f true
+    return true
+//else log false
+} else{
+    return false
+}
     // YOUR CODE ABOVE HERE //
 }
 
@@ -98,7 +108,13 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+    if (string.charAt(string.length - 1)  === char.toLowerCase()){
+        //log true f true
+        return true
+    //else log false
+    } else{
+        return false
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -111,7 +127,9 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+//two input string 
+//concatenate strings
+return stringOne + stringTwo
 
 
     // YOUR CODE ABOVE HERE //
@@ -130,6 +148,7 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
+    return args.join('');
 
 
     // YOUR CODE ABOVE HERE //
