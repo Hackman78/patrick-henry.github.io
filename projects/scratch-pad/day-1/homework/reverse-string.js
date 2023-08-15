@@ -19,12 +19,16 @@
  *  d. how do you concatenate Strings? What operator do we use?
  */
 
-function reverseString(input) {
+function reverseString(string) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+  //create arr where string is split  
+    var arr = string.split('');
+  //reverse arr order
+    arr.reverse()
+  //rejoin arr as string
+    var newString = arr.join('');
+      //return result
+      return newString
     // YOUR CODE GOES ABOVE HERE //
 }
 
