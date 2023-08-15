@@ -165,9 +165,13 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+//find the length of both strings
+if (stringOne.length > stringTwo.length){
+    return stringOne
+}else{
+    // return that string
+    return stringTwo
+}
     // YOUR CODE ABOVE HERE //
 }
 
@@ -177,10 +181,14 @@ function longest(stringOne, stringTwo) {
  * first, and return 0 if they're equal.
  *
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
+ * i: two strings w
+ * o: we want an 1, 0, -1 to compare first letter of strings
+ * c: N/a
+ * e: if the strings are equal
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    return stringTwo.localeCompare(stringOne)
 
 
     // YOUR CODE ABOVE HERE //
@@ -198,7 +206,7 @@ function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
 
-
+    return stringOne.localeCompare(stringTwo)
 
     // YOUR CODE ABOVE HERE //
 }
