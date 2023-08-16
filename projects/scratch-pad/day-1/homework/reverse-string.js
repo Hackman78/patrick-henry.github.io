@@ -22,13 +22,18 @@
 function reverseString(string) {
     // YOUR CODE GOES BELOW HERE //
   //create arr where string is split  
-    var arr = string.split('');
+  var arr = string.split('');
   //reverse arr order
     arr.reverse()
   //rejoin arr as string
     var newString = arr.join('');
       //return result
       return newString
+      var arr2 = [];
+  for (var i = arr.length; i >= 0; i--){
+    arr2 = arr[i];
+  }
+  return arr2.join('');
     // YOUR CODE GOES ABOVE HERE //
 }
 
