@@ -16,7 +16,9 @@ function createGreaterThanFilter(base) {
     
     
     
-    
+    return function(value){
+        
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -29,7 +31,9 @@ function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
     
-    
+    return function(value){
+    value < base
+    }
     
     // YOUR CODE ABOVE HERE //
 }
