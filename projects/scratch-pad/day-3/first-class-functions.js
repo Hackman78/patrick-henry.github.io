@@ -75,10 +75,13 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
+   var modifiedStrings = [];
+   for (var i = 0; i < strings.length; i++){
+    modifiedStrings.push(modify(strings[i]))
+   } 
     
     
-    
-    
+return modifiedStrings
     // YOUR CODE ABOVE HERE //
 }
 
