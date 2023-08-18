@@ -122,7 +122,19 @@ return modifiedStrings
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-
+    var arr = [];
+for (var i = 0; i < strings.length; i++){
+    if (test(strings[i]) === true){
+        arr.push(true);
+    } else {
+        arr.push(false);
+    }   
+}
+if (arr.includes(false) === false){
+    return true
+} else {
+    return false
+}
 
     // YOUR CODE ABOVE HERE //
 }
