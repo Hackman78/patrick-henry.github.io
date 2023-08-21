@@ -10,7 +10,7 @@
  *     
  *          ex: makeContact(1, 'Max', 'Gaudin'); // => {id: 1, nameFirst: 'Max', nameLast: 'Gaudin'}
  *     
- *  b. Create a factory Function called makeContactList that returns an Object 
+ *  b. Create a factory Function called makeContactList that returns an Array 
  *     that manages contacts. The contact-list object should have the following methods:
  *       
  *      1. length(): returns the number of contacts within the list.
@@ -34,8 +34,13 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
 
+function makeContact(id, nameFirst, nameLast) {
+    var contact = {};
+contact.id = id;
+contact.nameFirst = nameFirst;
+contact.nameLast = nameLast;
+    return contact;
 } 
 
 
@@ -43,20 +48,36 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
-    
+    var contactList = [];
+
     return {
-        // we implemented the length api for you //
         length: function() {
-            return contacts.length;
+            return contactList.length;
         },
-        addContact: function(contact){
-                contacts.push(contact)
+        addContact: function(contact) {
+            contactList.push(contact);
+        },
+        findContact: function(fullName) {
+            return contactList.find(function(contact) {
+                var fullNameInList = contact.nameFirst + ' ' + contact.nameLast;
+                return fullNameInList === fullName;
+            });
+        },
+        removeContact: function(contact) {
+            var i = contactList.findIndex(function(c) {
+                return c === contact;
+            });
+            if (i !== -1) {
+                contactList.splice(i, 1);
+            }
+        },
+        printAllContactNames: function() {
+            return contactList.map(function(contact) {
+                return contact.nameFirst + ' ' + contact.nameLast;
+            }).join('\n');
         }
-    }
+    };
 }
-
-
 
 
 // YOUR CODE GOES ABOVE HERE //
