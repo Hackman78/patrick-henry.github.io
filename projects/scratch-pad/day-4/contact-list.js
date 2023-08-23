@@ -51,18 +51,22 @@ function makeContactList() {
     var contactList = [];
 
     return {
+        //create length function that returns array length
         length: function() {
             return contactList.length;
         },
+        //create add contact funtion that adds contact to the contact list function
         addContact: function(contact) {
             contactList.push(contact);
         },
+        //find function that looks thru array for fullname and returns the object in the array
         findContact: function(fullName) {
             return contactList.find(function(contact) {
-                var fullNameInList = contact.nameFirst + ' ' + contact.nameLast;
-                return fullNameInList === fullName;
+                var fullNames = contact.nameFirst + ' ' + contact.nameLast;
+                return fullNames === fullName;
             });
         },
+        //removes a contact in a given index if contact fits contact discription
         removeContact: function(contact) {
             var i = contactList.findIndex(function(c) {
                 return c === contact;
@@ -71,6 +75,7 @@ function makeContactList() {
                 contactList.splice(i, 1);
             }
         },
+        //prints all contacts in contact list with full name and indents names to new lines with regexp
         printAllContactNames: function() {
             return contactList.map(function(contact) {
                 return contact.nameFirst + ' ' + contact.nameLast;
