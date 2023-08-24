@@ -86,16 +86,6 @@ console.log(animals.length);
 
 //arrays are basically a list
 var friends = [];
-function getRandomInt(animals) {
-  min = Math.ceil(0);
-  max = Math.floor(animals.length);
-  return animals[Math.floor(Math.random() * (max - min) + min)]; // The maximum is exclusive and the minimum is inclusive
-}
-animals[animal].friends = getRandomInt(animals).species
-
-//friends.push(getRandom(animals))
-//animals['animal'].friends = friends
-//console.log(friends)
 
 
 /**
