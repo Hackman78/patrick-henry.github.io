@@ -101,12 +101,13 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-if (object.noises.length !== 0){
-    return object.noises.join(' ')
-}else if (object === {}){
-return 'there are no noises'
- }else {
+    let objLen = Object.values(object).length
+if (objLen === 0){
     return 'there are no noises'
+  }else if(object.noises.length === 0) {
+    return 'there are no noises'
+} else{
+    return object.noises.join(' ')
 }
 }
 
@@ -115,7 +116,7 @@ return 'there are no noises'
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+return string.includes(word)
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -123,7 +124,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object.friends.push(name)
+    return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -131,7 +133,11 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    if (Object.values(object).length === 0){
+        return false
+    }else {
+    return object.friends.includes(name)
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -139,7 +145,13 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    let nonFriendArr = [];
+    for (let i = 0; i < array.length; i++){
+     if (!array[i].friends.includes(name) && !Object.values(array[i]).includes(name)){
+                nonFriendArr.push(array[i].name)
+        }
+     }
+     return nonFriendArr
 }
 
 //////////////////////////////////////////////////////////////////////
