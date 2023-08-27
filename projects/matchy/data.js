@@ -86,6 +86,18 @@ console.log(animals.length);
 
 //arrays are basically a list
 var friends = [];
+function getRandom(arr) {
+  return Math.floor(Math.random() * arr.length);
+}
+let randomAnimalIndex = getRandom(animals);
+let randomFriendName = animals[randomAnimalIndex].name;
+friends.push(randomFriendName);
+console.log(friends);
+
+
+// Adding the friends list to a random animal's properties
+animals[randomAnimalIndex].friends = friends;
+console.log(animals);
 
 
 /**

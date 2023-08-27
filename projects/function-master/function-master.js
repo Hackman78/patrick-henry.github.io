@@ -159,15 +159,22 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+if (!Object.keys(object).includes(key)){
+object.key = value;
+} else if(Object.keys(object).includes(key)){
+ object[key] = value   
 }
-
+}
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+for (let i = 0; i < array.length; i++) {
+    if (Object.keys(object).includes(array[i])){
+        delete object[array[i]]
+}
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -175,7 +182,15 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+    var arr = [];
+for (let i = 0; i < array.lenth; i++){
+    if (array.includes(array[i])){
+        arr.push(array[i])
+    }else if(a){
 
+    }
+}
+return arr
 }
 
 //////////////////////////////////////////////////////////////////////
