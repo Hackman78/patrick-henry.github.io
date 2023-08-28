@@ -160,6 +160,7 @@ function nonFriends(name, array) {
 
 function updateObject(object, key, value) {
     object[key] = value;
+    return object
   }
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////

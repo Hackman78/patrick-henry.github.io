@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function triangles(n) {
-for (let i = '#'; i.length < n; i += '#'){
+for (let i = '#'; i.length <= n; i += '#'){
   console.log(i)
 }
 }
@@ -13,16 +13,46 @@ for (let i = '#'; i.length < n; i += '#'){
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function fizzBuzz() {
+
+  function fizzBuzz() {
+    // YOUR CODE GOES BELOW HERE //
+    var i = 1;
+while (i <= 15){
   
+if ((i % 5) === 0 && (i % 3) === 0){
+   console.log('fizzbuzz')
+  i++
+}else if((i % 5) === 0){
+    console.log('buzz')
+  i++
+}else if((i % 3) === 0){
+   console.log('fizz')
+  i++
+}else{
+    console.log(i)
+  i++
 }
+}
+  }
 
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(n) {
-
+  let str1 = ' # # # #'
+  let str2 = '\n# # # # \n'
+  let arr = [str1];
+  for (let i = 0; i < n - 1; i++){
+   if (arr[i] === str1){
+     arr.push(str2);
+   } else {
+     arr.push(str1)
+   }
+   
+   // console.log(arr.join(''))
+  }
+   console.log(arr.join(''))
 }
 
 ////////////////////////////////////////////////////////////////////////////////
