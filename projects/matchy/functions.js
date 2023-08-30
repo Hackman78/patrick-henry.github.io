@@ -23,27 +23,44 @@ function search(array, string) {
 }
   return null;
 }
-console.log(search(animals, 'SwaggyP'))
-console.log(search(animals, 'Eww'))
-console.log(search(animals, 'Jerome'))
+
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function replace(array, string, object){
-  
+// functions.js
+
+function replace ( animals, name, string ){
+  for (let i = 0; i <  animals.length; i++){
+    if (animals[i].name === name ){
+      animals[i] = string;
+  }
+    }
 }
+
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function remove(animals, name ){
+  for ( let i = 0; i <  animals.length; i++ ) {
+    if (animals[i].name ===  name){
+      animals.splice( i, 1); 
+    }
+}
+    }
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+function add( animals, animal ){
+  const existingAnimal = search (animals, animal.name);
 
+  if (!existingAnimal && animal.name.length > 0 && animal.species.length > 0) {
+  animals.push(animal);
+}
+}
 
 
 /**

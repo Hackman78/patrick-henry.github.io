@@ -200,10 +200,9 @@ _.each = function(collection, func){
         for (let i = 0; i < collection.length; i++){
             func(collection[i], i, collection);
         }
-    }else if (typeof collection === 'object' && collection !== null) {
+    }else if (typeof collection === 'object') {
         for (const key in collection) {
-            func(collection[key], key, collection);
-          
+            func(collection[key], key, collection);         
 }
     }
 }
@@ -219,7 +218,14 @@ _.each = function(collection, func){
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+_.unique = function(array){
+    let arr = [];
+    for (let i = 0; i < array.length; i++){
+        if (array.includes(array[i])){
 
+    }
+    return arr
+}
 
 /** _.filter
 * Arguments:
