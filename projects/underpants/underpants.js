@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+// const { keyBy } = require("lodash");
+
 //const { arrayOrObject } = require("../function-master/function-master");
 
 var _ = {};
@@ -150,14 +152,13 @@ _.last = function(array, number){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 _.indexOf = function(array, value){
+  for (let i = 0; i < array.length; i++){
     if (!array.includes(value)){
         return -1
-    } else if (array.includes(value)){
-        return array.findIndexOf(value, function(){
-            return array.includes(value);
-        });
+    }if (array[i] === value){
+        return i
     }
-
+  }
 }
 
 /** _.contains
@@ -174,7 +175,9 @@ _.indexOf = function(array, value){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = function(array, value){
+    return array.includes(value)? true: false
+}
 
 /** _.each
 * Arguments:
@@ -195,11 +198,14 @@ _.each = function(collection, func){
   //determine if input collection is array
     if (Array.isArray(collection)){
         for (let i = 0; i < collection.length; i++){
-            func(collection[i], i, collection);{
-            }
+            func(collection[i], i, collection);
         }
+    }else if (typeof collection === 'object' && collection !== null) {
+        for (const key in collection) {
+            func(collection[key], key, collection);
+          
+}
     }
-
 }
 //else its an object
 
@@ -281,8 +287,17 @@ _.each = function(collection, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+// _.map = function(collection, func){
+//     let output = []
+//     if (Array.isArray(collection)){
+//         for (let i = 0;i < collection.length; i++){
+//             output.push(func(collection[i]), i, collection)
+//         }else {
 
-
+//     }
+//     return output
+// }
+// }
 /** _.pluck
 * Arguments:
 *   1) An array of objects
