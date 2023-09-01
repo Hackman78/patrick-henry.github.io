@@ -220,11 +220,14 @@ _.each = function(collection, func){
 */
 _.unique = function(array){
     let arr = [];
-    for (let i = 0; i < array.length; i++){
-        if (array.includes(array[i])){
-
+  for (let i = 0; i < array.length; i++){
+   // if (array.includes(array[i])){
+    //    arr.push (array[i])
+     if(array.includes(array[i]) && !arr.includes(array[i])){
+        arr.push(array[_.indexOf(array, array[i])])
     }
-    return arr
+  }
+  return arr
 }
 
 /** _.filter
@@ -242,7 +245,17 @@ _.unique = function(array){
 * Extra Credit:
 *   use _.each in your implementation
 */
-
+_.filter = function(array, func){
+    var filteredArray = [];
+  
+    _.each(array, function(element, index, arr) {
+      if (func(element, index, arr)) {
+        filteredArray.push(element);
+      }
+    });
+    
+    return filteredArray;
+  };
 
 /** _.reject
 * Arguments:
@@ -256,7 +269,16 @@ _.unique = function(array){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
+_.reject = function(array,func){
+    var filteredArray = [];
+    _.each(array, function(element, index, arr) {
+        if (!func(element, index, arr)) {
+          filteredArray.push(element);
+        }
+      });
+      
+      return filteredArray;
+}
 
 /** _.partition
 * Arguments:
@@ -276,7 +298,19 @@ _.unique = function(array){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-
+_.partition = function(array,func){
+    var arrTrue = [];
+    var arrFalse = [];
+    _.each(array, function(element, index, arr) {
+        if (!func(element, index, arr)) {
+          arrFalse.push(element);
+        } else if (func(element, index, arr)) {
+            arrTrue.push(element);
+        }
+      });
+      
+      return [[...arrTrue], [...arrFalse]]
+}
 
 /** _.map
 * Arguments:
@@ -293,17 +327,20 @@ _.unique = function(array){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-// _.map = function(collection, func){
-//     let output = []
-//     if (Array.isArray(collection)){
-//         for (let i = 0;i < collection.length; i++){
-//             output.push(func(collection[i]), i, collection)
-//         }else {
+_.map = function(collection,func){
+    var arrTrue = [];
+    var arrFalse = [];
+    _.each(collection, function(element, index, arr) {
+        if (Array.isArray(collection)) {
 
-//     }
-//     return output
-// }
-// }
+          return func(collection[i], i, collection)
+        } else if (typeof collection === 'object' && !collection === null) {
+           return 
+        }
+      });
+      
+      return [[...arrTrue], [...arrFalse]]
+}
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -378,7 +415,28 @@ _.unique = function(array){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+_.reduce = function(array, func, seed){
+    let output;
+    //determine if seed is undefined
+      if(seed === undefined){
+        output = array[0];
+            for (let i = 1; i < array.length; i++){
+                output = func(output, array[i], i)
+            }
+      }else { //else it received a value                                    
+        output = seed;
+        for (let i = 0; i < array.length; i++){
+            output = func(output, array[i], i)// what is happening here
+        }
+      }
+    return output
+}
 
+// take in collection ... usually array
+//iterate over collection
+//pass current item into a array w callback function
+    //filter => test every item and returns values into an array
+    // map => 
 
 /** _.extend
 * Arguments:
