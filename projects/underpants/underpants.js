@@ -327,19 +327,21 @@ _.partition = function(array,func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-_.map = function(collection,func){
-    var arrTrue = [];
-    var arrFalse = [];
-    _.each(collection, function(element, index, arr) {
-        if (Array.isArray(collection)) {
-
-          return func(collection[i], i, collection)
-        } else if (typeof collection === 'object' && !collection === null) {
-           return 
+_.map = function(collection, func) {
+    if (Array.isArray(collection)) {
+      // If the collection is an array, apply the function to each element
+      return collection.map((element, index) => func(element, index, collection));
+    } else if (typeof collection === 'object') {
+      // If the collection is an object, apply the function to each value
+      const result = [];
+      for (const key in collection) {
+        if (collection.hasOwnProperty(key)) {
+          const value = collection[key];
+          result.push(func(value, key, collection));
         }
-      });
-      
-      return [[...arrTrue], [...arrFalse]]
+      }
+      return result;                 
+  }
 }
 /** _.pluck
 * Arguments:
@@ -351,7 +353,11 @@ _.map = function(collection,func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
+_.pluck = function(array, property){
+return _.map(array, function(obj){
+    return obj[[property]]
+})
+}
 
 /** _.every
 * Arguments:
@@ -373,7 +379,36 @@ _.map = function(collection,func){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+_.every = function(collection, func){
+  if (typeof func !== 'function'){
+    for (const index in collection){
+      if (collection[index] !== true){
+        return false;
+      }
+    }
+  }else { 
+  for (const key in collection){
+    if (collection[key] !== true){
+      return false
+    }
+  }
+//1-3
+  if (Array.isArray(collection)){
+    for (const index in collection){
+      if (!func(collection[index], index, collection)){
+        return false;
+      }
+    }
+  }else if (typeof collection === "object"){ 
+  for (const key in collection){
+    if (!func(collection[key], key, collection)){
+      return false
+    }
+  }
+}
+return true
+}
+}
 
 /** _.some
 * Arguments:
