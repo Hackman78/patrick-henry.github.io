@@ -39,20 +39,21 @@ if ((i % 5) === 0 && (i % 3) === 0){
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(n) {
-  let str1 = ' # # # #'
-  let str2 = '\n# # # # \n'
-  let arr = [str1];
-  for (let i = 0; i < n - 1; i++){
-   if (arr[i] === str1){
-     arr.push(str2);
-   } else {
-     arr.push(str1)
-   }
-   
-   // console.log(arr.join(''))
+function drawChessboard(size) {
+  let chessboard = '';
+  
+  for (let row = 0; row < size; row++) {
+    for (let col = 0; col < size; col++) {
+      if ((row + col) % 2 === 0) {
+        chessboard += ' ';
+      } else {
+        chessboard += '#';
+      }
+    }
+    chessboard += '\n';
   }
-   console.log(arr.join(''))
+  
+  console.log(chessboard);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
