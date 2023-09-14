@@ -1,4 +1,7 @@
-(function() {
+
+
+      it('should use recursion by calling self', function () {
+        var origi(function() {
   'use strict';
 
   describe('Exercises in Recursion in Recursion in Recursion in...', function() {
@@ -292,10 +295,7 @@
         expect(exponent(4,-2)).to.equal(0.0625);
         expect(exponent(5,-4)).to.equal(0.0016);
         expect(exponent(2,-5)).to.equal(0.03125);
-      });
-
-      it('should use recursion by calling self', function () {
-        var originalExponent = exponent;
+      });nalExponent = exponent;
         exponent = sinon.spy(exponent);
         exponent(3,4);
         expect(exponent.callCount).to.be.above(1);
