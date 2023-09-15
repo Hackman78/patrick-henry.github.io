@@ -22,13 +22,7 @@ var _ = require('underbar');
  */
 
 var maleCount = function(array) {
-    count = 0
-    _.each(array, fucntion(Element, index, array){
-        if (element.gender === 'male'){
-            count++
-        }
-    })
-    return count 
+
 };
 
 var femaleCount;
@@ -44,7 +38,9 @@ var oldestCustomer = function(array){
     return accumulator
 };
 console.log(oldestCustomer(customers))
-var youngestCustomer;
+var youngestCustomer = function(array){
+    let youngest = _.reduce(array)
+};
 
 var averageBalance; // skip till mon
 
