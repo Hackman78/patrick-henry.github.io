@@ -1,7 +1,5 @@
 
-
-      it('should use recursion by calling self', function () {
-        var origi(function() {
+(function() {
   'use strict';
 
   describe('Exercises in Recursion in Recursion in Recursion in...', function() {
